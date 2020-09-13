@@ -3,5 +3,4 @@
 /workspace.xml
 
 # virtualenv
-.venv
-venv/
+../venv
