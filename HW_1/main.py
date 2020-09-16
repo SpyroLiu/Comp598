@@ -1,16 +1,23 @@
-# This is a sample Python script.
+import os
+import numpy as np
+import pandas as pd
+df = pd.read_csv('/Users/tylerliu/GitHub/Comp598/HW_1/IRAhandle_tweets_1.csv', delimiter=',',nrows=10000)
+df = df[0:9999]
+df = df[df["language"] == 'English']
+df = df[-df["content"].str.contains("\?")]
+trump_mention = df["content"].str.contains("(?<!\w)Trump(?!\w)|-Trump(?!\w)")
+df["trump_mention"] = trump_mention
+df.to_csv('new_file.tsv', sep='\t', index=False)
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+percent = sum(trump_mention)/len(trump_mention)
+
+df_check = df[["content","tweet_id","trump_mention","retweet"]]
+df_check = df_check[df_check["trump_mention"] == True]
+df_check.to_csv('check_update.csv', sep='\t', index=False)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+ds = df[["tweet_id","publish_date","content","trump_mention"]]
+ds.to_csv('dataset.tsv', sep='\t', index=False)
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-    print_hi('123')
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+result = pd.DataFrame({'result': ['frac-trump-mentions'],'value': ['{:.3%}'.format(percent)]})
+result.to_csv('result.tsv', sep='\t',index=False)
