@@ -1,0 +1,57 @@
+import os
+import argparse
+import os.path as osp
+import sys
+from hw3.json_pony import *
+import pandas as pd
+import numpy as np
+from collections import Counter
+import copy
+import re
+import json
+
+dt = pd.read_csv('/Users/tylerliu/GitHub/Comp598/HW_3/data/clean_dialog.csv', delimiter=',')
+dt = preprocess(dt)
+pony_analysis = {'verbosity': {}, 'mentions': {}, 'follow_on_comments': {}, 'non_dictionary_words': {}}
+ment = pony_analysis.get('mentions')
+
+pony_name = {'twilight': 'Twilight Sparkle', 'applejack': 'Applejack', 'rarity': 'Rarity',
+             'pinkie': 'Pinkie Pie', 'rainbow': 'Rainbow Dash', 'fluttershy': 'Fluttershy'}
+for name, full_name in pony_name.items():
+    pony_name_sub = copy.deepcopy(pony_name)
+    del pony_name_sub[name]
+    for name_sub, full_name_sub in pony_name_sub.items():
+        if full_name_sub.split()[0] != full_name_sub.split()[-1]:
+            pony_name_sub[name_sub] = dt[dt.pony == full_name].dialog.str.count(
+                '(?<!\w)' + str.split(full_name_sub)[0] + '(?!\w)').sum(axis=0) + \
+                                      dt[dt.pony == full_name].dialog.str.count(
+                                          '(?<!\w)' + str.split(full_name_sub)[-1] + '(?!\w)').sum(axis=0) - \
+                                      dt[dt.pony == full_name].dialog.str.count(
+                                          '(?<!\w)' + full_name_sub + '(?!\w)').sum(axis=0)
+        else:
+            pony_name_sub[name_sub] = dt[dt.pony == full_name].dialog.str.count(
+                '(?<!\w)' + full_name_sub + '(?!\w)').sum(axis=0)
+    # total_count = sum(pony_name_sub.values())
+    # for name_sub, full_name_sub in pony_name_sub.items():
+    #     if pony_name_sub[name_sub] != 0:
+    #         pony_name_sub[name_sub] = round(pony_name_sub[name_sub] / total_count, 3)
+    #     else:
+    #         pony_name_sub[name_sub] = 0
+    ment[name] = pony_name_sub
+print(ment)
+name = 'twilight'
+full_name = 'Twilight Sparkle'
+pony_name_sub = copy.deepcopy(pony_name)
+del pony_name_sub[name]
+pony_name_sub
+full_name_sub ='Applejack Applejack'
+name_sub = 'appeljack'
+dt[dt.pony == full_name].dialog.str.count('(?<!\w)' + str.split(full_name_sub)[0] + '(?!\w)').sum(axis=0) + \
+                                      dt[dt.pony == full_name].dialog.str.count('(?<!\w)' + str.split(full_name_sub)[1] + '(?!\w)').sum(axis=0) - \
+                                      dt[dt.pony == full_name].dialog.str.count('(?<!\w)' + full_name_sub + '(?!\w)').sum(axis=0)
+
+full_name_sub ='Pink Pie'
+name_sub = 'pinkie'
+dt[dt.pony == full_name].dialog.str.count('(?<!\w)' + str.split(full_name_sub)[0] + '(?!\w)').sum(axis=0) + \
+                          dt[dt.pony == full_name].dialog.str.count('(?<!\w)' + str.split(full_name_sub)[1] + '(?!\w)').sum(axis=0) - \
+                          dt[dt.pony == full_name].dialog.str.count('(?<!\w)' + full_name_sub + '(?!\w)').sum(axis=0)
