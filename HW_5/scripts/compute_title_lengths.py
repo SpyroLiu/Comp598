@@ -18,6 +18,7 @@ if __name__ == '__main__':
         l = get_post_list(input_path)
         l = title_check(l)
         title_length = get_subr_avg_title_length(l)
+        title_length = round(title_length, 2)
         print(title_length)
 
 

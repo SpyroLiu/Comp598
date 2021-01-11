@@ -3,7 +3,7 @@ import json
 import os.path as osp
 
 def get_posts(subreddit_name):
-    data = requests.get(f'http://api.reddit.com/r/{subreddit_name}/new?limit=100', headers ={'User-Agent': 'windows:requests (by /u/tylerliu)'})
+    data = requests.get(f'http://api.reddit.com/r/{subreddit_name}/new?limit=500', headers ={'User-Agent': 'windows:requests (by /u/tylerliu)'})
     data = data.json()['data']['children']
     return data
 

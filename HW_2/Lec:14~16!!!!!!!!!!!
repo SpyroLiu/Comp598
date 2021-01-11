@@ -1,0 +1,91 @@
+Lec:14~16!!!!!!!!!!!
+
+Navigation Command:
+cd 
+pwd
+
+File Operation:
+ls
+head
+tail
+more (不展示所有东西 打开很快！
+)
+less
+touch
+rm
+cat
+mkdir
+rmdir
+wget
+
+Edit:
+nano
+
+SUDO:
+ssh -i test.gem ubuntu@100.25.28.226
+sudo adduser tylerliu 
+su - tylelriu
+sudo usermod -aG sudo tylerliu
+
+ssh-keygen
+复制
+本机
+vim id_rsa
+enter+:wq
+chmod go-rwx id_rsa
+ssh -i id_rsa tylerliu@54.173.86.89
+
+远程
+cp id_rsa.pub authorized_keys
+wget 下载网站
+sh Miniconda3-latest-Linux-x86_64.sh 执行sh文件
+ls
+exec bash 重启 bash
+which python 返回python目录
+
+
+确认 config: 
+ls -a 看到.bashrc 打开
+cat .bashrc 然后翻到后面 space/enter
+
+Lec17!!!!!!!!!!!!!!!!!!!
+
+mkdir project
+cd project
+ls -lh (human readable)
+head -n 3 README.md
+wc --help(look for help of wc )
+
+grep "genocide" ABC.csv > geno.csv 
+grep "^1" ABC.csv > more
+set | grep "PATH"
+export PATH=blash
+set | grep "PATH" （这回啥都没了
+
+echo $PATH
+
+Lec18!!!!!!!!!!! 
+
+vim用法 i Esc :w :q :wq 自己查百度  写了无限复制文件的w
+rm -rf lec18
+* wildcard通配符
+tmux
+tmux multiple displays windows!!
+
+Use VS to work remotely
+
+
+Lec20!!!!!
+fzf
+sudo apt-get install fzf (搜github fzf网站)
+vim $(fzf)
+alias vzf = 'vim $(fzf)'
+
+vim ~/.bashrc 缩写放进去 然后就不会消失了
+alias
+
+
+
+HW2??????????
+sudo yum install httpd -y
+sudo yum-config-manager --add-repo HW2

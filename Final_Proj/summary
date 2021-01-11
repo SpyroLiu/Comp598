@@ -1,0 +1,115 @@
+The top 10 tf-idf score under each topic is:
+{
+  "cov": {
+    "covid": 0.03344,
+    "atlas": 0.01974,
+    "scott": 0.01645,
+    "vaccine": 0.01645,
+    "coronavirus": 0.01584,
+    "plague": 0.01316,
+    "meet": 0.01214,
+    "adviser": 0.01056,
+    "resign": 0.00971,
+    "trump": 0.00917
+  },
+  "par": {
+    "pardon": 0.11759,
+    "giuliani": 0.02976,
+    "hannity": 0.0276,
+    "sean": 0.0184,
+    "flynn": 0.01736,
+    "discuss": 0.01736,
+    "rudy": 0.0168,
+    "family": 0.01488,
+    "preemptive": 0.0138,
+    "pre": 0.0138
+  },
+  "pub": {
+    "trump": 0.00899,
+    "biden": 0.00886,
+    "garcetti": 0.0068,
+    "inauguration": 0.00669,
+    "call": 0.00667,
+    "win": 0.00502,
+    "populism": 0.00453,
+    "moment": 0.00453,
+    "rebuild": 0.00453,
+    "favorability": 0.00453
+  },
+  "ele": {
+    "fraud": 0.02465,
+    "election": 0.01293,
+    "trump": 0.00991,
+    "claim": 0.00962,
+    "ridiculous": 0.00514,
+    "ohio": 0.00514,
+    "voter": 0.00506,
+    "win": 0.00506,
+    "vote": 0.00506,
+    "evidence": 0.00506
+  },
+  "cou": {
+    "recount": 0.02907,
+    "dane": 0.02363,
+    "vote": 0.02035,
+    "wisconsin": 0.01889,
+    "milwaukee": 0.01744,
+    "reduction": 0.01575,
+    "county": 0.01453,
+    "confirm": 0.01053,
+    "biden": 0.00887,
+    "complete": 0.00872
+  },
+  "tru": {
+    "trump": 0.01245,
+    "election": 0.00631,
+    "census": 0.00502,
+    "skeptical": 0.00502,
+    "call": 0.00403,
+    "supreme": 0.00384,
+    "loser": 0.00358,
+    "immigrants": 0.00358,
+    "cybersecurity": 0.00358,
+    "ashamed": 0.00358
+  },
+  "bid": {
+    "biden": 0.01177,
+    "yellen": 0.00955,
+    "communications": 0.00955,
+    "treasury": 0.00849,
+    "female": 0.00743,
+    "economic": 0.00666,
+    "press": 0.00584,
+    "janet": 0.00581,
+    "secretary": 0.00548,
+    "pick": 0.00511
+  },
+  "ank": {
+    "dog": 0.07372,
+    "foot": 0.07264,
+    "play": 0.05344,
+    "fracture": 0.04972,
+    "twist": 0.04972,
+    "doctor": 0.0454,
+    "ankle": 0.0454,
+    "boot": 0.03632,
+    "orthopedist": 0.03632,
+    "suffer": 0.02486
+  }
+}
+
+The topic distribution is ('other' is included in integer form):
+Counter({'other': 1160, 'tru': 314, 'bid': 203, 'ele': 116, 'pub': 97, 'par': 34, 'cov': 32, 'cou': 28, 'ank': 16})
+
+The % topic distribution is ('other' is excluded):
+{'bid': 0.24167, 'pub': 0.11548, 'tru': 0.37381, 'ele': 0.1381, 'ank': 0.01905, 'cov': 0.0381, 'par': 0.04048, 'cou': 0.03333}
+The % topic distribution from subreddit 'politics' is:
+{'cou': 0.03443, 'bid': 0.21311, 'pub': 0.08361, 'ele': 0.11475, 'ank': 0.02131, 'par': 0.04754, 'tru': 0.44262, 'cov': 0.04262}
+The % topic distribution from subreddit 'conservatives' is:
+{'bid': 0.31739, 'pub': 0.2, 'tru': 0.1913, 'ele': 0.2, 'ank': 0.01304, 'cov': 0.02609, 'par': 0.02174, 'cou': 0.03043}
+
+
+The % topics distribution for posts concerned with Trump is:
+{'pub': 0.12392, 'tru': 0.54045, 'ele': 0.18417, 'ank': 0.00344, 'cov': 0.04475, 'par': 0.05852, 'cou': 0.0327, 'bid': 0.01205}
+The % topics distribution for posts concerned with Biden is:
+{'bid': 0.55041, 'pub': 0.19619, 'ank': 0.0436, 'cou': 0.05722, 'ele': 0.08719, 'tru': 0.0327, 'par': 0.00817, 'cov': 0.02452}
